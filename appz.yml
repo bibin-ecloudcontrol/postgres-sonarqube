@@ -1,7 +1,7 @@
 app:
     name: Postgres Sonarqube
     code: POSTGRESSONARQUBE
-    notify: appzdev@cloudbourne.co
+    notify: bkoshy@ecloudcontrol.com
     
 build:
     version: 12.2
@@ -12,7 +12,7 @@ build:
     image_name: alpha/postgres_sonar
     
 deploy:
-    context: alpha/DEV
+    context: bibin-ecloudcontrol/DEV
     type: statefulset
     replicas: 1
     port:
@@ -27,7 +27,7 @@ volumes:
     class: microk8s-hostpath    
 
 monitor:
-    notify: appzops@cloudbourne.co      
+    notify: bkoshy@ecloudcontrol.com   
     
 properties:
     POSTGRESQL_REPLICATION_MODE: master
@@ -35,15 +35,15 @@ properties:
     POSTGRESQL_CONNECTUSER: postgres
     POSTGRESQL_CONNECTIONDB: postgres
     POSTGRESQL_PORT: 5432
-    POSTGRESQL_PASSWORD: 
-      vault: POSTGRESQL_PASSWORD
+    POSTGRES_PASSWORD: 
+      vault: POSTGRES_PASSWORD
     POSTGRESQL_SYNCHRONOUS_COMMIT_MODE: on
     POSTGRESQL_NUM_SYNCHRONOUS_REPLICAS: 1
     POSTGRESQL_REP_USER: replica
     PGPASSWORD: 
       vault: PGPASSWORD
-    SONARUSER_PASSWORD:
-      vault: SONARUSER_PASSWORD
+    SONAR_JDBC_PASSWORD:
+      vault: SONAR_JDBC_PASSWORD
     APPZ_RESTORE_TOKEN: 20210115-1015
     APPZ_LOAD_TOKEN: 20210115-1015
     revision : 56
