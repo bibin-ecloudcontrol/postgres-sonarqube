@@ -46,4 +46,4 @@ properties:
       vault: SONAR_JDBC_PASSWORD
     APPZ_RESTORE_TOKEN: 20210115-1015
     APPZ_LOAD_TOKEN: 20210704-0917
-    revision : 57
+    revision : 58
