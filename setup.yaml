@@ -3,6 +3,9 @@ users:
   - name: sonaradmin
     password: $SONAR_JDBC_PASSWORD
     role: createdb, createrole
+  - name: keycloak
+    password: $KEYCLOAKDB_PASSWORD
+    role: superuser
     
 databases:
   - name: sonar
@@ -14,4 +17,9 @@ databases:
       - name: sonarqubeschema
         authorised_user: sonaradmin
         search_path: true
+  - name: keycloak
+    owner: keycloak
+    tablespace:
+      - name: tb_keycloak
+        location: /appz/data/tb_keycloak
         
